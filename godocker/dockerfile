@@ -1,0 +1,15 @@
+# Start with the official Golang image as a base
+FROM golang:1.17
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy everything from the local "main" directory to the container's /app directory
+COPY main/ .
+
+# Build the Go application. Assuming your entry file is named main.go.
+RUN go build -o myapp main.go
+
+# Specify the command to run on container start
+CMD ["./myapp"]
+
